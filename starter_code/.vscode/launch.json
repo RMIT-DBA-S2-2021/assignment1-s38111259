@@ -6,6 +6,13 @@
    "configurations": [
       {
          "type": "java",
+         "name": "Launch UserDetailDaoImpl",
+         "request": "launch",
+         "mainClass": "app.doa.UserDetailDaoImpl",
+         "projectName": "studio-project"
+      },
+      {
+         "type": "java",
          "name": "Launch Current File",
          "request": "launch",
          "mainClass": "${file}"

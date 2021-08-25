@@ -10,8 +10,7 @@ import io.javalin.core.util.RouteOverviewPlugin;
  * Running this class as regular java application will start the Javalin HTTP
  * Server and our web application.
  *
- * @author Timothy Wiley, 2021. email: timothy.wiley@rmit.edu.au
- * @author Santha Sumanasekara, 2021. email: santha.sumanasekara@rmit.edu.au
+ * @author Timothy Wiley, 2021. email: timothy.wiley@rmit.edu.au * @author Santha Sumanasekara, 2021. email: santha.sumanasekara@rmit.edu.au
  * @author Halil Ali, 2021. email halil.ali@rmit.edu.au
  */
 public class App {
@@ -23,7 +22,7 @@ public class App {
    /**
     * TODO update the username to match your own RMIT student number eg "s1234567"
     **/
-   public static final String RMIT_USERNAME = "e50562";
+   public static final String RMIT_USERNAME = "s3811259";
    public static char[] password = null;
 
    public static void main(String[] args) throws Exception {
@@ -91,13 +90,8 @@ public class App {
       app.get(Page6.URL, new Page6());
 
       // Add / uncomment POST commands for any pages that need web form POSTS
-      // app.post(Index.URL, new Index());
-      // app.post(Page1.URL, new Page1());
-      app.post(Page2.URL, new Page2());
-      app.post(Page3.URL, new Page3());
+      app.post(login.URL, new login());
       // app.post(Page4.URL, new Page4());
-      // app.post(Page5.URL, new Page5());
-      // app.post(Page6.URL, new Page6());
    }
 
 }

@@ -1,12 +1,199 @@
-/* -----------------------
-Base styles
-------------------------*/
 
-body
-{
-	margin: 0;
-	padding: 0;
-	color: #000000;
-	background-color: #a7a7ce;
-	font: 1em/1.2 "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+body{
+  margin: 0px;
+  background-color: #CDF0EA;
+}
+
+h1{
+  font-family: 'Montserrat',sans-serif;
+  color: #867AE9;
+  position: absolute;
+  margin: 3% 38.5%;
+  font-size: 70px;
+}
+
+h2{
+  font-family: 'Montserrat',sans-serif;
+  color: #BEAEE2;
+  position: relative;
+  top: 900px;
+  left: 617px;
+  font-size: 44px;
+}
+label{
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+p{
+  font-family: Indie Flower;
+  font-size: 35px;
+  margin-left: 135px;
+  margin-top: 18px;
+}
+
+a{
+  margin: 0 35%;
+  font-family: Montserrat;
+  font-weight: 600;
+}
+.top-container{
+  position: relative;
+}
+
+.bottom-container{
+  position: relative;
+  top: 936px;
+  background-color: #867AE9;
+  height: 155px;
+}
+
+.s{
+  font-family: Montserrat,sans-serif;
+  font-size: 13px;
+  margin-left: 666px;
+  margin-top: 113px;
+}
+
+.footer-link{
+  margin: 10px;
+  position: relative;
+  top: 64px;
+  font-family: Montserrat, sans-serif;
+  margin: 0 40px 100px auto;
+  text-decoration: none;
+  color: #BEAEE2;
+}
+.footer{
+  position: relative;
+  left: 586px;
+}
+
+.white-box{
+  width: 600px;
+  height: 650px;
+  background-color: #E4EFE7;
+  position: absolute;
+  top: 180px;
+  left: 454px;
+}
+
+.fname-input{
+  margin-left: 60px;
+  width: 293px;
+  height: 25px;
+}
+
+.email-input{
+  margin-left: 89px;
+  width: 293px;
+  height: 25px;
+}
+
+.pass-input{
+  margin-left: 60px;
+  width: 296px;
+  height: 25px;
+  position: relative;
+  right: 132px;
+  top: 9px;
+}
+
+.pass-label{
+  margin-left: 133px;
+  margin-bottom: 0px;
+  position: relative;
+  top: -18px;
+}
+
+.fname-label{
+  position: relative;
+  left: 135px;
+  top: -25px;
+}
+
+.email-label{
+  position: relative;
+  left: 135px;
+  top: -25px;
+}
+
+.sname-label{
+  position: relative;
+  left: 135px;
+  top: -25px;
+}
+
+.sname-input{
+  margin-left: 39px;
+  width: 293px;
+  height: 25px;
+}
+
+.date-label{
+  position: relative;
+  left: 135px;
+  top: -25px;
+}
+
+.date-input{
+  margin-left: 43px;
+  width: 296px;
+  height: 29px;
+}
+
+.gender-label{
+  position: relative;
+  left: 135px;
+  top: -25px;
+}
+
+.gender-input{
+  margin-left: 77px;
+  width: 296px;
+  height: 25px;
+}
+
+.status-label{
+  position: relative;
+  left: 135px;
+  top: -25px;
+}
+
+.status-input{
+  margin-left: 84px;
+  width: 297px;
+  height: 25px;
+}
+
+.location-label{
+  position: relative;
+  left: 135px;
+  top: -25px;
+}
+
+.location-input{
+  margin-left: 70px;
+  width: 297px;
+  height: 25px;
+}
+
+
+
+.submit{
+  width:333px;
+  height: 35px;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 20px;
+  margin: 4% 22.3%;
+  background-color: #CDF0EA;
+}
+
+.error{
+  position: relative;
+  top: -28px;
+  left: 180px;
+  color: red;
 }
