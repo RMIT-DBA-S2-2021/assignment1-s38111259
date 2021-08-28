@@ -74,7 +74,7 @@ body {
   
   .white-box {
     width: 600px;
-    height: 650px;
+    height: 680px;
     background-color: #E4EFE7;
     position: absolute;
     top: 180px;
@@ -195,7 +195,7 @@ body {
     height: 25px;
   }
   .visible-input {
-    margin-left: 70px;
+    margin-left: 84px;
     width: 297px;
     height: 25px;
   }
