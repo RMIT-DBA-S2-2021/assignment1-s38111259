@@ -19,7 +19,8 @@ public class Register implements Handler {
    public void handle(Context context) throws Exception {
       System.out.println("hi");
         Map<String, Object> model = new HashMap<String, Object>();
-        String username = context.formParam("email");
+        String email = context.formParam("email");
+        String fname = context.formParam("fname");
         String password = context.formParam("psk");
         String conf_pass = context.formParam("cpsk");
         String screen_name = context.formParam("sname");
@@ -30,9 +31,9 @@ public class Register implements Handler {
         String visible = context.formParam("visible");
         System.out.println(dob);
         UserRegisterDaoImpl userRegisterDaoImpl=new UserRegisterDaoImpl();
-        userRegisterDaoImpl.saveUserDetailDB(username, password, conf_pass, screen_name, dob, gender, status, location,visible);
+        userRegisterDaoImpl.saveUserDetailDB(email,fname, password, screen_name, dob, gender, status, location,visible);
         
-        if(username!=null || password!=null || conf_pass!=null || screen_name!=null || dob!=null || gender!=null || status!=null || location!=null){
+        if(fname!=null || password!=null || conf_pass!=null || screen_name!=null || dob!=null || gender!=null || status!=null || location!=null){
             
         }
         else{

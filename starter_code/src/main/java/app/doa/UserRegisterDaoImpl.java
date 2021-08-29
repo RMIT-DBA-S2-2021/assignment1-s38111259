@@ -11,7 +11,7 @@ import java.util.Date;
 public class UserRegisterDaoImpl {
     private static Connection connection;
 
-    public UserDetailM saveUserDetailDB(String username, String password, String conf_pass, String screen_name, String dob, String gender, String status, String location, String visible) {
+    public UserDetailM saveUserDetailDB(String email,String fname, String password, String screen_name, String dob, String gender, String status, String location, String visible) {
         JDBCConnection jdbc = JDBCConnection.getConnection();
 
         try {
@@ -25,7 +25,7 @@ public class UserRegisterDaoImpl {
             String strDate= formatter.format(date1);
             // The Query
             String query = "INSERT INTO MEMBER VALUES"                                        + "\n" +
-                        "('" + username+ "','" + password+ "','" + conf_pass+ "','" + screen_name+ "','" +strDate + "','" + gender+ "','" + status+ "','" + location+ "','" + visible+ "')" ;
+                        "('" + email+ "','" + password+ "','" + fname+ "','" + screen_name+ "','" +strDate + "','" + gender+ "','" + status+ "','" + location+ "','" + visible+ "')" ;
             System.out.println(query);
    
             // Get Result
