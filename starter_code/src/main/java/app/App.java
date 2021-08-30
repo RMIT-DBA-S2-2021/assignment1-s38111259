@@ -86,17 +86,11 @@ public class App {
    public static void configureRoutes(Javalin app) {
       // All webpages are listed here as GET pages
       app.get(Index.URL, new Index());
-      // app.get(Page1.URL, new Page1());
-      // app.get(Page2.URL, new Page2());
-      // app.get(Page3.URL, new Page3());
-      // app.get(Page4.URL, new Page4());
-      // app.get(Page5.URL, new Page5());
-      // app.get(Page6.URL, new Page6());
+      // app.get(home.URL, new home());
       app.get(Register.URL, new Register());
 
       // Add / uncomment POST commands for any pages that need web form POSTS
-      // app.post(login.URL, new login());
       app.post(login.URL, new login());
-      app.post(Register.URL, new Register());
+      app.post(Register_Response.URL, new Register_Response());
    }
 }

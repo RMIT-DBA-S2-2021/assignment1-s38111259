@@ -11,9 +11,9 @@ import java.util.Date;
 public class UserRegisterDaoImpl {
     private static Connection connection;
 
-    public UserDetailM saveUserDetailDB(String email,String fname, String password, String screen_name, String dob, String gender, String status, String location, String visible) {
+    public boolean saveUserDetailDB(String email,String fname, String password, String screen_name, String dob, String gender, String status, String location, String visible) {
         JDBCConnection jdbc = JDBCConnection.getConnection();
-
+        boolean isInserted=false;
         try {
             connection=JDBCConnection.connection;
             // Prepare a new SQL Query & Set a timeout
@@ -34,11 +34,12 @@ public class UserRegisterDaoImpl {
    
             // Close the statement because we are done with it
             statement.close();
-            
+            isInserted=true;
+            return isInserted;
          } catch (Exception e) {
             // If there is an error, lets just pring the error
             System.err.println(e.getMessage());
+            return isInserted;
          }
-         return null;
     }
 }

@@ -21,10 +21,10 @@
             <span th:text="${message}"></span>
           </div>
           <form method = "POST" action="/login.html"> 
-          <label for="email" class="email-label">Email:</label>
-          <input type="text" class="email-input" name="email"><br><br>
+          <label for="email" class="email-label">Email: <span style="color: red;">*</span></label>
+          <input required type="text" class="email-input" name="email"><br><br>
           <label for="pass" class="pass-label">Password:</label>
-          <input type="password" class="pass-input" name="pass"><br><br>
+          <input required type="password" class="pass-input" name="pass"><br><br>
           <input type="submit" name = "loginAction" class="submit" value="Login">
           </form>
 
