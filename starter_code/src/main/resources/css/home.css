@@ -1,0 +1,113 @@
+/* @authors Preet Choudhary & Viet Tran */
+
+body {
+    margin: 0px;
+    background-color: #CDF0EA;
+  }
+
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #867AE9;
+    position: absolute;
+    margin: 3% 38.5%;
+    font-size: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    left: -150px;
+  }
+
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #BEAEE2;
+    position: relative;
+    top: 120px;
+    left: 617px;
+    font-size: 30px;
+  }
+
+  h3{
+    font-family: 'Montserrat',sans-serif;
+    color: #BEAEE2;
+    position: relative;
+    top: 900px;
+    left: 617px;
+    font-size: 44px;
+  }
+
+  a {
+    margin: 0 35%;
+    font-family: Montserrat;
+    font-weight: 600;
+  }
+
+  .manage {
+    position: relative;
+    top: 150px;
+    left: -450px;
+    line-height: 200%;
+  }
+
+  .friends {
+      position: relative;
+      top: 17px;
+      left: 650px;
+      line-height: 200%;
+  }
+
+  .post-title-label {
+    font-family: 'Montserrat', sans-serif;
+    color: #867AE9;
+    position: relative;
+    top: -250px;
+    left: 617px;
+    font-size: 20px;
+  }
+
+  .postbox-label {
+    position: relative;
+    top: -100px;
+    left: 360px;
+  }
+
+  .submit-post {
+    width: 333px;
+    height: 35px;
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 20px;
+    background-color: #CDF0EA;
+    position: relative;
+    top: -50px;
+  }
+
+  .bottom-container {
+    position: relative;
+    top: 936px;
+    background-color: #867AE9;
+    height: 155px;
+  }
+
+  .footer {
+    position: relative;
+    left: 586px;
+  }
+
+  .footer-link {
+    margin: 10px;
+    position: relative;
+    top: 64px;
+    font-family: Montserrat, sans-serif;
+    margin: 0 40px 100px auto;
+    text-decoration: none;
+    color: #BEAEE2;
+  }
+
+  .s {
+    font-family: Montserrat, sans-serif;
+    font-size: 13px;
+    margin-left: 666px;
+    margin-top: 113px;
+  }
+  
+
+  

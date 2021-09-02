@@ -1,0 +1,86 @@
+/* @authors Preet Choudhary & Viet Tran */
+body {
+    margin: 0px;
+    background-color: #CDF0EA;
+  }
+  
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #867AE9;
+    position: absolute;
+    margin: 3% 38.5%;
+    font-size: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #BEAEE2;
+    position: relative;
+    top: 900px;
+    left: 617px;
+    font-size: 44px;
+  }
+  
+  label {
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 13px;
+  }
+  
+  p {
+    font-family: Indie Flower;
+    font-size: 35px;
+    margin-left: 135px;
+    margin-top: 18px;
+  }
+  
+  a {
+    margin: 0 35%;
+    font-family: Montserrat;
+    font-weight: 600;
+  }
+  
+  .top-container {
+    position: relative;
+  }
+  
+  .bottom-container {
+    position: relative;
+    top: 936px;
+    background-color: #867AE9;
+    height: 155px;
+  }
+  
+  .s {
+    font-family: Montserrat, sans-serif;
+    font-size: 13px;
+    margin-left: 666px;
+    margin-top: 113px;
+  }
+  
+  .footer-link {
+    margin: 10px;
+    position: relative;
+    top: 64px;
+    font-family: Montserrat, sans-serif;
+    margin: 0 40px 100px auto;
+    text-decoration: none;
+    color: #BEAEE2;
+  }
+  
+  .footer {
+    position: relative;
+    left: 586px;
+  }
+  
+  .white-box {
+    width: 600px;
+    height: 680px;
+    background-color: #E4EFE7;
+    position: absolute;
+    top: 180px;
+    left: 454px;
+  }
+  

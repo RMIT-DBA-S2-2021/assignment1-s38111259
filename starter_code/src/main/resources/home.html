@@ -1,7 +1,49 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <body>
-        <h1>Welcome have a nice day:</h1>
-        <h2 th:text="${username}"></h2>
-    </body>
+
+<!-- @authors Preet Choudhary & Viet Tran -->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>FaceLite Main Page</title>
+    <link rel="stylesheet" type="text/css" href="home.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Your Facelite Account</h1>
+    <h2 th:text="${username}"></h2>
+
+    <div class="manage">
+        <a href="update.html">Update Your Account</a><br><br>
+        <a href="delete.html">Delete Your Account</a><br><br>
+    </div>
+
+    <div class="friends">
+        <a href="request.html">Your Friendship Requests</a><br><br>
+        <a href="search.html">Search for New Friends</a><br><br>
+    </div>
+
+    <form action="">
+        <label for="post-title" class="post-title-label"> Create a Post</label>
+        <textarea id="postbox" class="postbox-label" rows="10" cols="50">
+        </textarea>
+        <input type="submit" class="submit-post" value="Submit your new post">
+
+        <h3>Contact Us</h3>
+        <div class="bottom-container">
+            <div class="footer">
+                <a class="footer-link" href="http://linkedin.com/in/preet-choudhary-3864061b9">LinkedIn</a>
+                <a class="footer-link" href="https://instagram.com/preet_choudhary145?r=nametag">Instagram</a>
+                <a class="footer-link"
+                    href="file:///C:/Users/User/Desktop/RMIT/Semester%203/Database%20Applications/Assignment-1/HMTL/index.html">Website</a>
+            </div>
+            <p class="s">© 2021 Preet Choudhary and Viet Tran</p>
+        </div>
+
+</body>
+
 </html>
