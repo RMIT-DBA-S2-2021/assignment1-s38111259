@@ -1,11 +1,11 @@
 package app;
 
-// import java.util.ArrayList;
+import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.DriverManager;
-// import java.sql.ResultSet;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-// import java.sql.Statement;
+import java.sql.Statement;
 
 /**
  * Class for Managing the JDBC Connection to a SQLLite Database. Allows SQL
@@ -31,26 +31,26 @@ public class JDBCConnection {
    public static Connection connection;
 
    /**
-   * Singleton function to return single copy of this class to other classes
-   **/
-   public static JDBCConnection getConnection(){
+    * Singleton function to return single copy of this class to other classes
+    **/
+   public static JDBCConnection getConnection() {
 
-      //check that ssh session is still open (if not reopen)
+      // check that ssh session is still open (if not reopen)
       SSHTunnel.getSession();
 
-      //check that JDBCconnection is available (if not establish)
-      if(jdbc==null){
+      // check that JDBCconnection is available (if not establish)
+      if (jdbc == null) {
          jdbc = new JDBCConnection();
       }
       return jdbc;
    }
 
    /**
-   * Hidden constructor to establish Database connection (once)
-   **/
+    * Hidden constructor to establish Database connection (once)
+    **/
    private JDBCConnection() {
       System.out.println("Created JDBC Connection Object");
-      
+
       try {
          // Connect to JDBC data base
          connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
@@ -61,9 +61,9 @@ public class JDBCConnection {
    }
 
    /**
-   * Closes the database connection - called only when server shutdown
-   **/
-   public static void closeConnection(){
+    * Closes the database connection - called only when server shutdown
+    **/
+   public static void closeConnection() {
       try {
          if (connection != null) {
             connection.close();
@@ -75,90 +75,192 @@ public class JDBCConnection {
       }
    }
 
-   /**
-    * Get all of the Movies in the database
-    */
-   // public ArrayList<String> getMovies() {
-   //    ArrayList<String> movies = new ArrayList<String>();
+   // Display All Friend Requests
+   public ArrayList<String> getFriendRequests() {
+      ArrayList<String> friendRequests = new ArrayList<String>();
 
-   //    try {
-   //       // Prepare a new SQL Query & Set a timeout
-   //       Statement statement = connection.createStatement();
-   //       statement.setQueryTimeout(30);
+      try {
+         // Prepare a new SQL Query & Set a timeout
+         Statement statement = connection.createStatement();
+         statement.setQueryTimeout(30);
 
-   //       // The Query
-   //       String query = "SELECT *"   + "\n" +
-   //                      "FROM movie" ;
+         // The Query
+         String query = "SELECT *" + "\n" + 
+                        "FROM friend_request";
 
-   //       // Get Result
-   //       ResultSet results = statement.executeQuery(query);
+         // Get Result
+         ResultSet results = statement.executeQuery(query);
 
-   //       // Process all of the results
-   //       // The "results" variable is similar to an array
-   //       // We can iterate through all of the database query results
-   //       while (results.next()) {
-   //          // We can lookup a column of the a single record in the
-   //          // result using the column name
-   //          // BUT, we must be careful of the column type!
-   //          // int id = results.getInt("mvnumb");
-   //          String movieName = results.getString("mvtitle");
-   //          // int year = results.getInt("yrmde");
-   //          // String type = results.getString("mvtype");
+         // Process all of the results
+         while (results.next()) {
+            String friendRequestName = results.getString("sentBy");
 
-   //          // For now we will just store the movieName and ignore the id
-   //          movies.add(movieName);
-   //       }
+            friendRequests.add(friendRequestName);
+         }
 
          // Close the statement because we are done with it
-      //    statement.close();
-      // } catch (SQLException e) {
-      //    // If there is an error, lets just print the error
-      //    System.err.println(e.getMessage());
-      // }
+         statement.close();
+      } catch (SQLException e) {
+         // If there is an error, lets just print the error
+         System.err.println(e.getMessage());
+      }
 
-      // Finally we return all of the movies
-   //    return movies;
-   // }
+      return friendRequests;
+   }
 
-   /**
-    * Get all the movies in the database by a given type. Note this takes a string
-    * of the type as an argument! This has been implemented for you as an example.
-    * HINT: you can use this to find all of the horror movies!
-    */
-   // public ArrayList<String> getMoviesByType(String movieType) {
-   //    ArrayList<String> movies = new ArrayList<String>();
+   // Display All Posts
+   public ArrayList<String> getPosts() {
+      ArrayList<String> posts = new ArrayList<String>();
 
-   //    // Setup the variable for the JDBC connection
-   //    //Connection connection = null;
+      try {
+         // Prepare a new SQL Query & Set a timeout
+         Statement statement = connection.createStatement();
+         statement.setQueryTimeout(30);
 
-   //    try {
-   //       // Prepare a new SQL Query & Set a timeout
-   //       Statement statement = connection.createStatement();
-   //       statement.setQueryTimeout(30);
+         // The Query
+         String query = "SELECT *" + "\n" + 
+                        "FROM post_response";
 
-   //       // The Query
-   //       String query = "SELECT *"                                        + "\n" +
-   //                      "FROM movie"                                      + "\n" +
-   //                      "WHERE LOWER(mvtype) = LOWER('" + movieType + "')";
-   //       System.out.println(query);
+         // Get Result
+         ResultSet results = statement.executeQuery(query);
 
-   //       // Get Result
-   //       ResultSet results = statement.executeQuery(query);
+         // Process all of the results
+         while (results.next()) {
 
-   //       // Process all of the results
-   //       while (results.next()) {
-   //          String movieName = results.getString("mvtitle");
-   //          movies.add(movieName);
-   //       }
+            String postBody = results.getString("body");
 
-   //       // Close the statement because we are done with it
-   //       statement.close();
-   //    } catch (SQLException e) {
-   //       // If there is an error, lets just pring the error
-   //       System.err.println(e.getMessage());
-   //    }
+            posts.add(postBody);
+         }
 
-   //    // Finally we return all of the movies
-   //    return movies;
-   // }
+         // Close the statement because we are done with it
+         statement.close();
+      } catch (SQLException e) {
+         // If there is an error, lets just print the error
+         System.err.println(e.getMessage());
+      }
+
+      return posts;
+   }
+
+   // Search Member
+   public ArrayList<String> searchMember(String fullName) {
+      ArrayList<String> member = new ArrayList<String>();
+
+      try {
+         // Prepare a new SQL Query & Set a timeout
+         Statement statement = connection.createStatement();
+         statement.setQueryTimeout(30);
+
+         // The Query
+         String query = "SELECT *"    + "\n" + 
+                        "FROM member" + "\n" + 
+                        "WHERE FULLNAME = '" + fullName + "'";
+         System.out.println(query);
+
+         // Get Result
+         ResultSet results = statement.executeQuery(query);
+
+         // Process all of the results
+         while (results.next()) {
+            String memberFullName = results.getString("fullname");
+            member.add(memberFullName);
+         }
+
+         // Close the statement because we are done with it
+         statement.close();
+      } catch (SQLException e) {
+         // If there is an error, lets just pring the error
+         System.err.println(e.getMessage());
+      }
+
+      return member;
+   }
+
 }
+
+/**
+ * Get all of the Movies in the database
+ */
+// public ArrayList<String> getMovies() {
+// ArrayList<String> movies = new ArrayList<String>();
+
+// try {
+// // Prepare a new SQL Query & Set a timeout
+// Statement statement = connection.createStatement();
+// statement.setQueryTimeout(30);
+
+// // The Query
+// String query = "SELECT *" + "\n" +
+// "FROM movie" ;
+
+// // Get Result
+// ResultSet results = statement.executeQuery(query);
+
+// // Process all of the results
+// // The "results" variable is similar to an array
+// // We can iterate through all of the database query results
+// while (results.next()) {
+// // We can lookup a column of the a single record in the
+// // result using the column name
+// // BUT, we must be careful of the column type!
+// // int id = results.getInt("mvnumb");
+// String movieName = results.getString("mvtitle");
+// // int year = results.getInt("yrmde");
+// // String type = results.getString("mvtype");
+
+// // For now we will just store the movieName and ignore the id
+// movies.add(movieName);
+// }
+
+// Close the statement because we are done with it
+// statement.close();
+// } catch (SQLException e) {
+// // If there is an error, lets just print the error
+// System.err.println(e.getMessage());
+// }
+
+// Finally we return all of the movies
+// return movies;
+// }
+
+/**
+ * Get all the movies in the database by a given type. Note this takes a string
+ * of the type as an argument! This has been implemented for you as an example.
+ * HINT: you can use this to find all of the horror movies!
+ */
+// public ArrayList<String> getMoviesByType(String movieType) {
+// ArrayList<String> movies = new ArrayList<String>();
+
+// // Setup the variable for the JDBC connection
+// //Connection connection = null;
+
+// try {
+// // Prepare a new SQL Query & Set a timeout
+// Statement statement = connection.createStatement();
+// statement.setQueryTimeout(30);
+
+// // The Query
+// String query = "SELECT *" + "\n" +
+// "FROM movie" + "\n" +
+// "WHERE LOWER(mvtype) = LOWER('" + movieType + "')";
+// System.out.println(query);
+
+// // Get Result
+// ResultSet results = statement.executeQuery(query);
+
+// // Process all of the results
+// while (results.next()) {
+// String movieName = results.getString("mvtitle");
+// movies.add(movieName);
+// }
+
+// // Close the statement because we are done with it
+// statement.close();
+// } catch (SQLException e) {
+// // If there is an error, lets just pring the error
+// System.err.println(e.getMessage());
+// }
+
+// // Finally we return all of the movies
+// return movies;
+// }
