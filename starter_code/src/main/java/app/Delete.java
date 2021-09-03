@@ -1,6 +1,9 @@
 // @authors Preet Choudhary & Viet Tran 
 package app;
 
+import javax.servlet.http.HttpSession;
+
+import app.service.UserDeleteServiceImpl;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
 
@@ -14,7 +17,10 @@ public class Delete implements Handler {
 
     @Override
     public void handle(Context context) throws Exception {
-
+        HttpSession session = context.req.getSession();
+        String email=(String) session.getAttribute("emailAddressColumn");
+        UserDeleteServiceImpl userDeleteServiceImpl = new UserDeleteServiceImpl();
+        userDeleteServiceImpl.deleteUserDetail(email);
         // DO NOT MODIFY THIS
         // Makes Javalin render the webpage using Thymeleaf
         // Map<String, Object> model = new HashMap<String, Object>();
