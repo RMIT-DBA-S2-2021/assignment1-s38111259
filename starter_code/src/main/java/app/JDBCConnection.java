@@ -1,11 +1,8 @@
 package app;
 
-import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  * Class for Managing the JDBC Connection to a SQLLite Database. Allows SQL
@@ -24,7 +21,7 @@ public class JDBCConnection {
    // once you create a set of tables in your own account, update this to your RMIT
    // Oracle account details
    private static final String DATABASE_USERNAME = "s3811259";
-   private static final String DATABASE_PASSWORD = "Oracle@45";
+   private static final String DATABASE_PASSWORD =  "Oracle@45";
 
    private static final String DATABASE_URL = "jdbc:oracle:thin:@//localhost:9922/CSAMPR1.its.rmit.edu.au";
    private static JDBCConnection jdbc = null;
@@ -74,108 +71,6 @@ public class JDBCConnection {
          System.err.println(e.getMessage());
       }
    }
-
-   // Display All Friend Requests
-   public ArrayList<String> getFriendRequests() {
-      ArrayList<String> friendRequests = new ArrayList<String>();
-
-      try {
-         // Prepare a new SQL Query & Set a timeout
-         Statement statement = connection.createStatement();
-         statement.setQueryTimeout(30);
-
-         // The Query
-         String query = "SELECT *" + "\n" + 
-                        "FROM friend_request";
-
-         // Get Result
-         ResultSet results = statement.executeQuery(query);
-
-         // Process all of the results
-         while (results.next()) {
-            String friendRequestName = results.getString("sentBy");
-
-            friendRequests.add(friendRequestName);
-         }
-
-         // Close the statement because we are done with it
-         statement.close();
-      } catch (SQLException e) {
-         // If there is an error, lets just print the error
-         System.err.println(e.getMessage());
-      }
-
-      return friendRequests;
-   }
-
-   // Display All Posts
-   public ArrayList<String> getPosts() {
-      ArrayList<String> posts = new ArrayList<String>();
-
-      try {
-         // Prepare a new SQL Query & Set a timeout
-         Statement statement = connection.createStatement();
-         statement.setQueryTimeout(30);
-
-         // The Query
-         String query = "SELECT *" + "\n" + 
-                        "FROM post_response";
-
-         // Get Result
-         ResultSet results = statement.executeQuery(query);
-
-         // Process all of the results
-         while (results.next()) {
-
-            String postBody = results.getString("body");
-
-            posts.add(postBody);
-         }
-
-         // Close the statement because we are done with it
-         statement.close();
-      } catch (SQLException e) {
-         // If there is an error, lets just print the error
-         System.err.println(e.getMessage());
-      }
-
-      return posts;
-   }
-
-   // Search Member
-   public ArrayList<String> searchMember(String fullName) {
-      ArrayList<String> member = new ArrayList<String>();
-
-      try {
-         // Prepare a new SQL Query & Set a timeout
-         Statement statement = connection.createStatement();
-         statement.setQueryTimeout(30);
-
-         // The Query
-         String query = "SELECT *"    + "\n" + 
-                        "FROM member" + "\n" + 
-                        "WHERE FULLNAME = '" + fullName + "'";
-         System.out.println(query);
-
-         // Get Result
-         ResultSet results = statement.executeQuery(query);
-
-         // Process all of the results
-         while (results.next()) {
-            String memberFullName = results.getString("fullname");
-            member.add(memberFullName);
-         }
-
-         // Close the statement because we are done with it
-         statement.close();
-      } catch (SQLException e) {
-         // If there is an error, lets just pring the error
-         System.err.println(e.getMessage());
-      }
-
-      return member;
-   }
-
 }
 
 /**

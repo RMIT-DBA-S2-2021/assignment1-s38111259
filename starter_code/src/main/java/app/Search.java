@@ -17,7 +17,6 @@ public class Search implements Handler {
 
         // DO NOT MODIFY THIS
         // Makes Javalin render the webpage using Thymeleaf
-        // Map<String, Object> model = new HashMap<String, Object>();
         context.render(TEMPLATE);
 
     }
