@@ -32,7 +32,7 @@ public class Register_Response implements Handler {
               UserRegisterServiceImpl userRegisterServiceImpl=new UserRegisterServiceImpl();
               isInserted=userRegisterServiceImpl.saveUserDetail(email,fname, password, screen_name, dob, gender, status, location,visible);
               if (isInserted) {
-                 model.put("Message", "You have registered Successfuly");
+                 model.put("Message", "You have Registered Successfully");
                  context.render(TEMPLATE, model);           
               }
               else{

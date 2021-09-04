@@ -8,12 +8,13 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class UserSearchDaoImpl {
+public class UserShowPostDaoImpl {
+
     private static Connection connection;
 
-    // Search Member Query
-    public ArrayList<String> getMember(String fullName) {
-        ArrayList<String> member = new ArrayList<String>();
+    // Show Member Posts Query
+    public ArrayList<String> getPost(String emailAddress) {
+        ArrayList<String> post = new ArrayList<String>();
 
         try {
             // Prepare a new SQL Query & Set a timeout
@@ -21,9 +22,9 @@ public class UserSearchDaoImpl {
             statement.setQueryTimeout(30);
 
             // The Query
-            String query = "SELECT *" + "\n" + 
-                           "FROM member" + "\n" + 
-                           "WHERE FULLNAME = '" + fullName + "'";
+            String query = "SELECT *"           + "\n" + 
+                           "FROM post_response" + "\n" + 
+                           "WHERE EMAILADDRESS = '" + emailAddress + "'";
             System.out.println(query);
 
             // Get Result
@@ -31,8 +32,8 @@ public class UserSearchDaoImpl {
 
             // Process all of the results
             while (results.next()) {
-                String memberFullName = results.getString("fullname");
-                member.add(memberFullName);
+                String memberPost = results.getString("body");
+                post.add(memberPost);
             }
 
             // Close the statement because we are done with it
@@ -42,7 +43,7 @@ public class UserSearchDaoImpl {
             System.err.println(e.getMessage());
         }
 
-        return member;
+        return post;
     }
 
 }
