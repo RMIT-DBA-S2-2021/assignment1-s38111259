@@ -25,8 +25,11 @@ public class Register_Response implements Handler {
           String location = context.formParam("location");
           String visible = context.formParam("visible");
           boolean isInserted=false;
-          
-          if(fname!=null || password!=null || conf_pass!=null || screen_name!=null || dob!=null || gender!=null || status!=null || location!=null){
+          if(!(password.equals(conf_pass))){
+            model.put("psk_err", "Password doesn't macthes");
+            context.render(TEMPLATE, model);
+         }
+          else if(fname!=null || password!=null || conf_pass!=null || screen_name!=null || dob!=null || gender!=null || status!=null || location!=null){
               UserRegisterServiceImpl userRegisterServiceImpl=new UserRegisterServiceImpl();
               isInserted=userRegisterServiceImpl.saveUserDetail(email,fname, password, screen_name, dob, gender, status, location,visible);
               if (isInserted) {
