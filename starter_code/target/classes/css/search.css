@@ -93,3 +93,10 @@ body {
     margin: 4% 22.3%;
     background-color: #CDF0EA;
   }
+
+.headf{
+  font-family: 'Indie Flower';
+  position: relative;
+  left: 41%;
+  font-size: 24px;
+}

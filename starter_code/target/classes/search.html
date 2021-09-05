@@ -19,11 +19,13 @@
     </div>
     <div class="white-box">
         <p>Search for Facelite Friends</p>
-        <form method="POST" action="">
+        <form method="POST" action="/search.html">
 
             <label for="search" class="label">Find a Facelite User:</label>
             <input required type="text" class="search-input" name="search" size="50"><br><br>
-
+            <div th:if="${member}">          
+                <h4 class = 'headf' th:text="${member}"></h4>
+            </div>
             <input type="submit" class="submit" value="Search">
         </form>
 

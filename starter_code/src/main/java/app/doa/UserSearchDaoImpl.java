@@ -3,6 +3,9 @@ package app.doa;
 // @authors Preet Choudhary & Viet Tran
 
 import java.util.ArrayList;
+
+import app.JDBCConnection;
+
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -14,8 +17,10 @@ public class UserSearchDaoImpl {
     // Search Member Query
     public ArrayList<String> getMember(String fullName) {
         ArrayList<String> member = new ArrayList<String>();
-
+        JDBCConnection jdbc = JDBCConnection.getConnection();
         try {
+            // Prepare a new SQL Query & Set a timeout
+            connection=JDBCConnection.connection;
             // Prepare a new SQL Query & Set a timeout
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);
