@@ -93,7 +93,6 @@ public class App {
       app.get(Delete.URL, new Delete());
       app.get(Request.URL, new Request());
       app.get(Search.URL, new Search());
-      
 
       // Add / uncomment POST commands for any pages that need web form POSTS
       app.post(login.URL, new login());
@@ -102,6 +101,7 @@ public class App {
       app.post(Delete.URL, new Delete());
       app.post(Request.URL, new Request());
       app.post(Search.URL, new Search());
+      app.post(home.URL, new home());
 
    }
 }

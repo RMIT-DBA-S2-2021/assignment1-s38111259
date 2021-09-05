@@ -23,6 +23,7 @@ public class UserRegisterDaoImpl {
             date1 = new SimpleDateFormat("yyyy-mm-dd").parse(dob); 
             SimpleDateFormat formatter = new SimpleDateFormat("DD-MMM-YY"); 
             String strDate= formatter.format(date1);
+            
             // The Query
             String query = "INSERT INTO MEMBER VALUES"                                        + "\n" +
                         "('" + email+ "','" + password+ "','" + fname+ "','" + screen_name+ "','" +strDate + "','" + gender+ "','" + status+ "','" + location+ "','" + visible+ "')" ;

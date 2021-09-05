@@ -8,6 +8,13 @@
          "type": "java",
          "name": "Launch demo",
          "request": "launch",
+         "mainClass": "app.demo",
+         "projectName": "studio-project"
+      },
+      {
+         "type": "java",
+         "name": "Launch demo",
+         "request": "launch",
          "mainClass": "app.doa.demo",
          "projectName": "studio-project"
       },

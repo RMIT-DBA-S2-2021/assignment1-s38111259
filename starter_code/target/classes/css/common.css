@@ -197,3 +197,21 @@ a{
   left: 180px;
   color: red;
 }
+
+.hdr{
+  font-family: 'Montserrat',sans-serif;
+  color: #BEAEE2;
+  position: relative;
+  top: 0;
+  left: 27%;
+  font-size: 44px;
+}
+
+.tag{
+  font-size: 26px;
+  margin: 0 35%;
+  left: 70px;
+  position: relative;
+  font-family: Montserrat;
+  font-weight: 600;
+}

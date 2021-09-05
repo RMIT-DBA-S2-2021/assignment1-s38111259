@@ -13,7 +13,6 @@ public class Register_Response implements Handler {
 
     @Override
     public void handle(Context context) throws Exception {
-        System.out.println("hi");
           Map<String, Object> model = new HashMap<String, Object>();
           String email = context.formParam("email");
           String fname = context.formParam("fname");
@@ -25,7 +24,6 @@ public class Register_Response implements Handler {
           String status = context.formParam("status");
           String location = context.formParam("location");
           String visible = context.formParam("visible");
-          System.out.println(dob);
           boolean isInserted=false;
           
           if(fname!=null || password!=null || conf_pass!=null || screen_name!=null || dob!=null || gender!=null || status!=null || location!=null){

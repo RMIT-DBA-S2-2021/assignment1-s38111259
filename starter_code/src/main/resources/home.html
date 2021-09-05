@@ -33,12 +33,19 @@
         <a href="search.html">Search for New Friends</a><br><br>
     </div>
 
-    <form action="">
+    <form method='POST' action="/home.html">
         <label for="post-title" class="post-title-label"> Create a Post</label>
-        <textarea id="postbox" class="postbox-label" rows="10" cols="50">
+        <textarea required id="postbox" class="postbox-label" name='postbox'rows="10" cols="50">
         </textarea>
         <input type="submit" class="submit-post" value="Submit your new post">
-</form>
+
+        <div class='response' th:if="${Message}">          
+          <h2 class = 'homedr' th:text="${Message}"></h2>
+        </div>
+        <div class='response' th:if="${Failure_MSG}">          
+          <h2 class = 'homedr' th:text="${Failure_MSG}"></h2>
+        </div>
+    </form>
         <h3>Contact Us</h3>
         <div class="bottom-container">
             <div class="footer">

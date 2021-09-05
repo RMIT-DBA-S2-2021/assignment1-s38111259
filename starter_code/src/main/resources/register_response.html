@@ -3,16 +3,16 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Document</title>
+    <link rel="stylesheet" href="common.css">
 </head>
 <body>
-    
-    <div th:if="${Message}">          
-        <h2 th:text="${Message}"></h2>
-        <a href="/">Click here for Login</a>
+    <div class='response' th:if="${Message}">          
+        <h2 class = 'hdr' th:text="${Message}"></h2>
+        <a class = 'tag' href="/">Click here for Login</a>
       </div>
-      <div th:if="${Failure_MSG}">          
-        <h2 th:text="${Failure_MSG}"></h2>
-        <a href="register.html">Click here for Registration</a>
-      </div>
+        <div th:if="${Failure_MSG}">
+          <h2 class = 'hdr' th:text="${Failure_MSG}"></h2>
+          <a class = 'tag' href="register.html">Click here for Registration</a>
+        </div>     
 </body>
 </html>
